@@ -13,4 +13,10 @@ jobs:
     name: test
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello, World!"
+      - name: Print AWS Access Key ID
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        run: echo $AWS_ACCESS_KEY_ID
+
+      - name: Print AWS Secret Access Key
+        run: echo ${{ secrets.AWS_SECRET_ACCESS_KEY }}
